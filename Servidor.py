@@ -42,18 +42,18 @@ def Fazer_Login():
         msg = "Email ou senha incorretos"
     return render_template("Login.html", msg=msg)
 
-@app.route('/Administrador')
-def administrador():
-    return render_template('Verificar_ADM.html')
 
-@app.route('/Verificar_Senha', methods=['POST'])
-def verificar_senha():
-    senha = request.form.get('senha')
-    if senha == '1234':
-        return render_template('Aba_do_admin.html')
+@app.route('/Verificar_Senha', methods=['GET', 'POST'])
+def administrador():
+    if request.method == 'GET':
+        return render_template('Verificar_ADM.html')
     else:
-        msg = "Senha incorreta, tente novamente!"
-        return render_template('Verificar_ADM.html', msg=msg)
+        senha = request.form.get('senha')
+        if senha == '1234':
+            return render_template('Aba_do_admin.html')
+        else:
+            msg = "Senha incorreta, tente novamente!"
+            return render_template('Verificar_ADM.html', msg=msg)
 
 @app.route('/Remover_Usuario', methods=['post'])
 def remover_usuario():
