@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/Cadastro.css">
+</head>
+<body>
+    <div class="topo">
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="logo">
+
+        </div>
+        <div class="btn-voltar">
+            <a href="/" class="botao-link">Voltar à Tela Inicial</a>
+        </div>
+    </div>
+
+    <div class="caixa">
+        <div class="form">
+            <form action="/Fazer_Login" method="POST">
+                <div class="titulo">
+                    <h1>Login - I'm a hero</h1>
+                </div>
+
+                <div class="input">
+                    <input type="email" name="email" placeholder="Login de usuário" required>
+                </div>
+
+                <div class="input">
+                    <input type="password" name="senha" placeholder="Senha" required>
+                </div>
+
+                <div class="msg">
+                    <p>{{ msg }}</p>
+                </div>
+
+                <button type="submit" class="botao" >Entrar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

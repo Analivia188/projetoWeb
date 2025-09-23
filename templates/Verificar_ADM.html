@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificar Admin</title>
+    <link rel="stylesheet" href="../static/Verificar_ADM.css">
+</head>
+<body>
+    <div class="topo">
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="logo">
+        </div>
+        <a href="/" class="botao-link">Voltar</a>
+
+    </div>
+    <div class="camposenha">
+        <form action="/Verificar_Senha" method="post">
+            <input type="password" name="senha" placeholder="Digite sua senha">
+            <br><br><br>
+
+            <div class="msg">
+                {{msg}}
+            </div>
+            <br>
+
+            <button type="submit" class="botao">Verificar</button>
+         </form>
+    </div>
+
+
+</body>
+</html>

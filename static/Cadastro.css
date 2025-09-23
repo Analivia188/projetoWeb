@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+
+}
+
+.topo {
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 90px;
+    height: auto;
+}
+
+.botao-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgray;
+    border: none;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.caixa {
+    margin-top: 60px;
+    margin-left: 450px;
+    margin-right: 400px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+}
+
+.titulo{
+    margin-bottom: 15px;
+    color: black;
+}
+
+.input {
+    margin-bottom: 12px;
+}
+
+.input input {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgray;
+    border: none;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.msg {
+    text-align: center;
+    color: red;
+}

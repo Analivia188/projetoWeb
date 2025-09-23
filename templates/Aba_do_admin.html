@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aba do Admin</title>
+    <link rel="stylesheet" href="../static/Aba_do_admin.css">
+</head>
+<body>
+    <div class="topo">
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="logo">
+        </div>
+        <a href="/" class="botao-link">Voltar à Tela Inicial</a>
+    </div>
+
+    <div class="titulo">
+        <h1>Painel do Administrador</h1>
+        <p>Gerencie vendas, estoque e clientes de forma rápida e prática</p>
+    </div>
+
+    <div class="caixa">
+         <form action="/Remover_Usuario" method="post">
+             <div class="nome">
+                 <h2>Remover usuário</h2>
+             </div>
+             <input name="email" placeholder="Remova usuário">
+             <button>Enviar</button>
+         </form>
+    </div>
+
+    <br><br>
+    <a href="/Listar_Usuarios">Listar Usuários</a>
+
+
+
+</body>
+</html>
