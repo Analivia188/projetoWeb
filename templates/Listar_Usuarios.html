@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="../static/Listar_Usuarios.css">
 </head>
 <body>
+    <div class="topo">
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="logo">
+        </div>
+        <a href="/" class="botao-link">Voltar à Tela Inicial</a>
+    </div>
     <h1>Aqui estão os usuários cadastrados</h1>
     <hr>
-    <ul>
-        {% for nome in lista %}
-            <li>{{ nome }}</li>
-        {% endfor %}
-    </ul>
+
+    <div class="clientinhos">
+        {% if lista %}
+           {% for usuarios in lista %}
+              <p>Nome: {{usuarios[0]}}</p>
+           {% endfor %}
+        {% endif %}
+    </div>
 </body>
 </html>

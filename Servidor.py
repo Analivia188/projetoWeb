@@ -76,12 +76,11 @@ def remover_usuario():
 
 @app.route('/Listar_Usuarios', methods=['get'])
 def listar_usuarios():
-    global usuarios
     if len(usuarios) > 0:
-        enviar = []
-        for u in usuarios:
-            enviar.append(u[0])
-        return render_template('Listar_Usuarios.html', lista=enviar)
+        return render_template('Listar_Usuarios.html', lista=usuarios)
+    else:
+        return render_template('Listar_Usuarios.html')
+
 
 @app.route('/quiz1')
 def quiz1():
