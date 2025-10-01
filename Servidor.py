@@ -55,6 +55,10 @@ def administrador():
             msg = "Senha incorreta, tente novamente!"
             return render_template('Verificar_ADM.html', msg=msg)
 
+@app.route('/administrador')
+def admin():
+    return render_template('Aba_do_admin.html')
+
 @app.route('/Remover_Usuario', methods=['post'])
 def remover_usuario():
     global usuarios
@@ -80,6 +84,19 @@ def listar_usuarios():
         return render_template('Listar_Usuarios.html', lista=usuarios)
     else:
         return render_template('Listar_Usuarios.html')
+
+@app.route('/detalhes')
+def mostrar_detalhes():
+    email = request.values.get('email')
+    achei = None
+    for user in usuarios:
+        if email == user[1]:
+            achei = user
+            break
+    return render_template('Detalhes_usuario.html', usuarios=achei)
+
+
+
 
 
 @app.route('/quiz1')

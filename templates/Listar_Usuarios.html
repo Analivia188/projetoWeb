@@ -10,7 +10,7 @@
         <div class="logo">
             <img src="../static/img/logo.png" alt="logo">
         </div>
-        <a href="/" class="botao-link">Voltar à Tela Inicial</a>
+        <a href="/administrador" class="botao-link">Voltar</a>
     </div>
     <h1>Aqui estão os usuários cadastrados</h1>
     <hr>
@@ -18,7 +18,8 @@
     <div class="clientinhos">
         {% if lista %}
            {% for usuarios in lista %}
-              <p>Nome: {{usuarios[0]}}</p>
+               <a href="/detalhes?email={{usuarios[1]}}">
+               <p>Nome: {{usuarios[0]}}</p>
            {% endfor %}
         {% endif %}
     </div>

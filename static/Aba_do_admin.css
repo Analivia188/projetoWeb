@@ -50,10 +50,17 @@ body{
     text-align: center;
 }
 
-.nome{
-    color: red;
+.caixinha {
+    margin-top: 60px;
+    margin-left: 450px;
+    margin-right: 400px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: black;
+    text-align: center;
 }
 
-.caixa{
-    margin-le
+.nome{
+    color: red;
 }
