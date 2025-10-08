@@ -19,7 +19,9 @@
         {% if lista %}
            {% for usuarios in lista %}
                <a href="/detalhes?email={{usuarios[1]}}">
-               <p>Nome: {{usuarios[0]}}</p>
+                   {{usuarios[0]}}
+                   <br>
+               </a>
            {% endfor %}
         {% endif %}
     </div>

@@ -59,24 +59,25 @@ def administrador():
 def admin():
     return render_template('Aba_do_admin.html')
 
-@app.route('/Remover_Usuario', methods=['post'])
+@app.route('/Eliminar', methods=['GET', 'POST'])
 def remover_usuario():
     global usuarios
-    email = request.form.get('email')
-    existe = False
-    indice = 0
-    for usuario in usuarios:
-        if usuario[1] == email:
-            existe = True
-            break
-        indice += 1
+    if request.method == 'POST':
+        email = request.form.get('email')
+        existe = False
+        indice = 0
+        for usuario in usuarios:
+            if usuario[1] == email:
+                existe = True
+                break
+                indice += 1
+                return render_template('Remover.html')
+        if existe:
+            usuarios.pop(indice)
+        else:
+            print('Não consta na lista de usuarios')
 
-    if existe:
-        usuarios.pop(indice)
-    else:
-        print('Não consta na lista de usuarios')
-
-    return render_template('Aba_do_admin.html')
+    return render_template('Remover.html')
 
 @app.route('/Listar_Usuarios', methods=['get'])
 def listar_usuarios():
@@ -95,8 +96,7 @@ def mostrar_detalhes():
             break
     return render_template('Detalhes_usuario.html', usuarios=achei)
 
-
-
+@app.route('/Cadastrar_produto')
 
 
 @app.route('/quiz1')
