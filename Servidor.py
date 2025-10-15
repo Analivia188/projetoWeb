@@ -4,10 +4,7 @@ app = Flask(__name__)
 
 app.secret_key = 'segredo'
 
-usuarios = [
-    ["Ana Livia", "ana@example.com", "123456"],
-    ["Cindy", "cindy@leroo.com", "1234567"],
-]
+usuarios = [["Ana Livia", "ana@example.com", "123456"],["Cindy", "cindy@leroo.com", "1234567"],]
 
 @app.route('/')
 def pag_principal():
@@ -21,7 +18,6 @@ def Cadastrar_Usuario():
         email = request.form.get('email')
         telefone = request.form.get('telefone')
         senha = request.form.get('senha')
-
 
         for usuario in usuarios:
             if usuario[1] == email:
@@ -67,6 +63,9 @@ def admin():
 @app.route('/Eliminar', methods=['GET', 'POST'])
 def remover_usuario():
     global usuarios
+    if 'login' not in session or session['login'] != 'me':
+        return render_template('tela_inicial.htm')
+
     if request.method == 'POST':
         email = request.form.get('email')
         existe = False
@@ -86,10 +85,11 @@ def remover_usuario():
 
 @app.route('/Listar_Usuarios', methods=['get'])
 def listar_usuarios():
-    if len(usuarios) > 0:
-        return render_template('Listar_Usuarios.html', lista=usuarios)
-    else:
-        return render_template('Listar_Usuarios.html')
+    if 'login' in session and session['login'] == 'me':
+        if len(usuarios) > 0:
+            return render_template('Listar_Usuarios.html', lista=usuarios)
+        else:
+            return render_template('Listar_Usuarios.html')
 
 @app.route('/detalhes')
 def mostrar_detalhes():
