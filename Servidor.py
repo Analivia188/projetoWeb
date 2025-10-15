@@ -2,6 +2,8 @@ from flask import *
 
 app = Flask(__name__)
 
+app.secret_key = 'segredo'
+
 usuarios = [
     ["Ana Livia", "ana@example.com", "123456"],
     ["Cindy", "cindy@leroo.com", "1234567"],
@@ -17,14 +19,16 @@ def Cadastrar_Usuario():
     if request.method == 'POST':
         nome = request.form.get('nome')
         email = request.form.get('email')
+        telefone = request.form.get('telefone')
         senha = request.form.get('senha')
+
 
         for usuario in usuarios:
             if usuario[1] == email:
                 msg = "Usuário já existe!"
                 return render_template('Cadastro.html', msg=msg)
 
-        usuarios.append([nome, email, senha])
+        usuarios.append([nome, email, telefone, senha])
         msg = nome + " foi cadastrado(a) com sucesso!"
         return render_template('Loja.html', msg=msg)
 
@@ -48,12 +52,13 @@ def administrador():
     if request.method == 'GET':
         return render_template('Verificar_ADM.html')
     else:
+        login = request.form.get('login')
         senha = request.form.get('senha')
-        if senha == '1234':
+        if login == 'me' and senha == '321':
+            session['login'] = login
             return render_template('Aba_do_admin.html')
         else:
-            msg = "Senha incorreta, tente novamente!"
-            return render_template('Verificar_ADM.html', msg=msg)
+            return render_template('tela_inicial.html',)
 
 @app.route('/administrador')
 def admin():
