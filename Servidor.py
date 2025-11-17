@@ -1,4 +1,5 @@
 from flask import *
+from utils.auxiliares import *
 
 app = Flask(__name__)
 
@@ -13,33 +14,34 @@ def pag_principal():
 @app.route('/Cadastrar_Usuario', methods=['GET', 'POST'])
 def Cadastrar_Usuario():
     global usuarios
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        email = request.form.get('email')
-        telefone = request.form.get('telefone')
-        senha = request.form.get('senha')
+    if request.method == 'GET':
+        return render_template('Cadastro.html')
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    senha = request.form.get('senha')
 
-        for usuario in usuarios:
-            if usuario[1] == email:
-                msg = "Usuário já existe!"
-                return render_template('Cadastro.html', msg=msg)
+    if fazer_login_usuario(email, senha, usuarios):
+        msg = "Usuário já existe!"
+        return render_template('Cadastro.html', msg=msg)
 
-        usuarios.append([nome, email, telefone, senha])
-        msg = nome + " foi cadastrado(a) com sucesso!"
-        return render_template('Loja.html', msg=msg)
+    usuarios.append([nome, email, senha])
+    msg = nome + " foi cadastrado(a) com sucesso!"
+    return render_template('Loja.html', msg=msg)
 
-    return render_template('Cadastro.html')
 
 @app.route('/Fazer_Login', methods=["GET", "POST"])
 def Fazer_Login():
-    msg = ""
-    if request.method == "POST":
-        email = request.form.get("email")
-        senha = request.form.get("senha")
-        for usuario in usuarios:
-            if usuario[1] == email and usuario[2] == senha:
-                return render_template("Loja.html")
-        msg = "Email ou senha incorretos"
+    if request.method == "GET":
+        return render_template("Login.html")
+
+    email = request.form.get("email")
+    senha = request.form.get("senha")
+
+    if fazer_login_usuario(email, senha, usuarios):
+        session['usuario'] = email
+        return render_template("Loja.html")
+
+    msg = "Email ou senha incorretos"
     return render_template("Login.html", msg=msg)
 
 
@@ -83,7 +85,7 @@ def remover_usuario():
 
     return render_template('Remover.html')
 
-@app.route('/Listar_Usuarios', methods=['get'])
+@app.route('/Listar_Usuarios', methods=['GET'])
 def listar_usuarios():
     if 'login' in session and session['login'] == 'me':
         if len(usuarios) > 0:
