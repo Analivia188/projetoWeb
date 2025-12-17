@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body {
 .botao-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: darkgray;
+    background-color: black;
     color: black;
     text-decoration: none;
     border-radius: 5px;
@@ -22,7 +22,7 @@ body {
     height: 80px;
     padding: 0 20px;
     box-sizing: border-box;
-    background-color: white;
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@ body {
 }
 
 .logo img {
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 

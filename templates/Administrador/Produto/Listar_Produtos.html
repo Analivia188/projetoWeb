@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar de Produtos</title>
+</head>
+<body>
+    <h1>Meus Produtos</h1>
+
+    {% if lista %}
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+            </tr>
+
+            {% for produto in lista %}
+            <tr>
+                <td>{{ produto.nome }}</td>
+                <td>R$ {{ produto.valor }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Você ainda não cadastrou nenhum produto.</p>
+    {% endif %}
+
+    <br>
+    <a href="/Cadastrar_Produto">Cadastrar</a>
+
+</body>
+</html>

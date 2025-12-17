@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar produto</title>
+</head>
+<body>
+    <h1>Cadastro de Produto</h1>
+
+    <form action="/Cadastrar_Produto" method="POST">
+        <input type="text" name="nome" placeholder="Nome do produto"><br><br>
+        <input type="text" name="valor" step="0.01" placeholder="Valor do produto"><br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <br>
+    <a href="Listar_Produtos">Ver meus produtos</a>
+
+    <div class="msg">
+        <p>{{ msg }}</p>
+    </div>
+
+
+
+</body>
+</html>

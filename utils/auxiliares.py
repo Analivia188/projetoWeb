@@ -1,13 +1,14 @@
-def verificar_login_crush(login, lista_usuarios):
-    for user in lista_usuarios:
-        if login == user[1]:  # email
+def verificar_login(lista, email, senha):
+    for usuario in lista:
+        if usuario[1] == email and usuario[2] == senha:
             return True
+
     return False
 
 
+def buscar_usuario(lista, email):
+    for usuario in lista:
+        if usuario[1] == email:
+            return usuario
 
-def fazer_login_usuario(email, senha, lista_usuarios):
-    for usuario in lista_usuarios:
-        if email == usuario[1] and senha == usuario[2]:
-            return True
-    return False
+    return None
